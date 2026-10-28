@@ -1,6 +1,12 @@
 {
   "framework": "vite",
-  "installCommand": "npm install --prefix client",
+  "installCommand": "npm ci --prefix client",
   "buildCommand": "npm run build --prefix client",
-  "outputDirectory": "client/dist"
+  "outputDirectory": "client/dist",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://sarkari-saathi-api-taral1812.onrender.com/api/:path*"
+    }
+  ]
 }

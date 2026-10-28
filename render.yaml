@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: sarkari-saathi-api-taral1812
+    runtime: node
+    plan: 0.5c-512mb
+    region: singapore
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm run db:seed && npm start
+    healthCheckPath: /api/health
+    disk:
+      name: sarkari-saathi-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/sarkari-saathi.db
+      - key: FRONTEND_ORIGIN
+        value: https://sarkari-saathi-git-main-sarkari-saathi1.vercel.app,https://sarkari-saathi.vercel.app
+      - key: TRUST_PROXY
+        value: "1"
+      - key: SEED_ADMIN_EMAIL
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
+      - key: SEED_ADMIN_NAME
+        sync: false
