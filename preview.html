@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    .row { margin-bottom: 24px; padding: 16px; border-radius: 8px; }
+    .light { background: #ffffff; border: 1px solid #ccc; color: #333; }
+    .dark { background: #122033; color: #fff; }
+    img { vertical-align: middle; margin-right: 16px; }
+  </style>
+</head>
+<body>
+  <h2>Logo Preview</h2>
+  
+  <div class="row light">
+    <h3>On Light Background (Header/Body)</h3>
+    <div>
+      <p>Full Light Logo (height 44px):</p>
+      <img src="logo.png" height="44" alt="logo" />
+    </div>
+    <div style="margin-top: 15px;">
+      <p>Emblem Icon + Text (height 38px):</p>
+      <div style="display: inline-flex; align-items: center; gap: 10px; font-weight: 850; font-size: 20px; color: #132033;">
+        <img src="logo-icon.png" height="38" alt="emblem" />
+        <span>Sarkari <span style="color: #00a2f9;">Saathi</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row dark">
+    <h3>On Dark Background (Footer / Dark sections)</h3>
+    <div>
+      <p>Full Logo Transparent on Dark (height 44px):</p>
+      <img src="logo-transparent.png" height="44" alt="logo transparent" />
+    </div>
+    <div style="margin-top: 15px;">
+      <p>Original Cropped on Dark (height 44px):</p>
+      <img src="logo-original-cropped.png" height="44" alt="original cropped" />
+    </div>
+  </div>
+</body>
+</html>
