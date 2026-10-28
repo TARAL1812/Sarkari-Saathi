@@ -145,7 +145,7 @@ export default function Auth({ mode, onSubmit, navigate }) {
         </p>
 
         <p className="authNote">
-          Connected to local Sarkari Saathi backend API with encrypted SQLite storage.
+          Accounts require the Sarkari Saathi API. Passwords are securely hashed.
         </p>
       </section>
     </main>

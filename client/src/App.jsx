@@ -222,8 +222,19 @@ export default function App() {
   // Authentication: Connects to Backend with fallback
   const handleAuth = (mode) => async ({ name, email, password }) => {
     const normalized = email.trim().toLowerCase();
+    let backendAvailable = isBackendLive;
 
-    if (isBackendLive) {
+    if (!backendAvailable) {
+      try {
+        const health = await api.health();
+        backendAvailable = health?.ok === true;
+        if (backendAvailable) setIsBackendLive(true);
+      } catch {
+        backendAvailable = false;
+      }
+    }
+
+    if (backendAvailable) {
       try {
         let responseUser;
         if (mode === 'signup') {
@@ -278,7 +289,7 @@ export default function App() {
       }
     }
 
-    return { error: 'The service is offline. Sign in or create an account when the backend is available.' };
+    return { error: 'The account service is currently unavailable. Please try again shortly.' };
   };
 
   const handleSignOut = async () => {
