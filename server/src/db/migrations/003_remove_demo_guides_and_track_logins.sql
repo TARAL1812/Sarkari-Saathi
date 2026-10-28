@@ -1,0 +1,4 @@
+ALTER TABLE users ADD COLUMN login_count INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE users ADD COLUMN last_login_at TEXT;
+
+DELETE FROM journeys WHERE is_demo = 1;
